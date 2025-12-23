@@ -5,11 +5,11 @@ By default it searches
 - The Minecraft Launcher
 - The Minecraft UWP Launcher
 - `PATH`
-- Java Home
+- Java home
 
 ## Installation
 ```bash
-npm install @doublekekse/find-java
+pnpm install github:Tomate0613/find-java
 ```
 
 ## Usage

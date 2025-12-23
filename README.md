@@ -9,7 +9,7 @@ By default it searches
 
 ## Installation
 ```bash
-npm install @doublekekse/find-java
+pnpm install github:Tomate0613/find-java
 ```
 
 ## Usage
