@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@doublekekse/find-java": [
+        "../src/index.ts"
+      ]
+    }
+  },
+  "include": [
+    "**/*",
+    "*"
+  ]
+}

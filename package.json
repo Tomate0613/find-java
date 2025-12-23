@@ -1,0 +1,33 @@
+{
+  "name": "@doublekekse/find-java",
+  "version": "1.0.0",
+  "description": "A utility to find or download java",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doublekekse/find-java.git"
+  },
+  "keywords": [
+    "java",
+    "utility"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup-node",
+    "prepack": "tsup-node",
+    "script": "tsup scripts/index.ts --out-dir script-dist --format esm && node script-dist/index.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.3",
+    "@types/node-fetch": "^2.6.13",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0",
+    "tsup": "^8.5.1"
+  },
+  "license": "MIT"
+}
