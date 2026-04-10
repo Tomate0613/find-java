@@ -40,7 +40,7 @@ function extension(): string {
   }
 }
 
-class FoundJavaInstallations extends Map<number, string[]> {
+export class FoundJavaInstallations extends Map<number, string[]> {
   test(dir: string) {
     const file = path.join(dir, "java" + extension());
     const version = getJavaVersion(file);
@@ -66,8 +66,8 @@ class FoundJavaInstallations extends Map<number, string[]> {
   }
 }
 
-function checkEnv(found: FoundJavaInstallations) {
-  const paths = process.env.PATH?.split(path.delimiter);
+export function checkPath(found: FoundJavaInstallations, variable = "PATH") {
+  const paths = process.env[variable]?.split(path.delimiter);
 
   if (!paths) {
     return;
@@ -126,11 +126,12 @@ function checkJavaHome(found: FoundJavaInstallations) {
 
 export function findJavaInstallations() {
   const found = new FoundJavaInstallations();
-
-  checkVanillaLaunchers(found);
-  checkEnv(found);
-  checkJavaHome(found);
-
+  checkDefaults(found);
   return found;
 }
 
+export function checkDefaults(found: FoundJavaInstallations) {
+  checkVanillaLaunchers(found);
+  checkPath(found);
+  checkJavaHome(found);
+}
