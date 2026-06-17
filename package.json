@@ -29,7 +29,7 @@
     "script": "tsup scripts/index.ts --out-dir script-dist --format esm && node script-dist/index.mjs"
   },
   "devDependencies": {
-    "@types/node": "^25.9.1",
+    "@types/node": "^25.9.3",
     "@types/node-fetch": "^2.6.13",
     "typescript": "^6.0.3"
   },
