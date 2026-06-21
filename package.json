@@ -2,6 +2,24 @@
   "name": "@doublekekse/find-java",
   "version": "1.0.0",
   "description": "A utility to find or download java",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit --composite false",
+    "build": "pnpm build:esm && pnpm build:cjs",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "prepare": "pnpm build",
+    "script": "node scripts/index.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/doublekekse/find-java.git"
@@ -13,21 +31,6 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
-    }
-  },
-  "scripts": {
-    "build": "tsup-node",
-    "prepack": "tsup-node",
-    "script": "tsup scripts/index.ts --out-dir script-dist --format esm && node script-dist/index.mjs"
-  },
   "devDependencies": {
     "@types/node": "^25.9.3",
     "@types/node-fetch": "^2.6.13",
